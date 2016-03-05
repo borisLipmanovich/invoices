@@ -247,3 +247,4 @@ _Pvt_Extensions
 # JetBrains Rider
 .idea/
 *.sln.iml
+backend/Task/App_Data/db.sqlite
