@@ -5,7 +5,7 @@ import 'rxjs/operator/map';
 
 @Injectable()
 export class InvoiceService {
-    private url = 'http://localhost:55246/';
+    private url = 'http://ec2-54-191-220-117.us-west-2.compute.amazonaws.com:55246/';
     private total = null;
     private totalTax = null;
     private vat = 18;
@@ -83,8 +83,8 @@ export class InvoiceService {
             },
             err => console.log(err)
         );
-
     }
+
     onlyNumericFilter(e){
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -103,9 +103,6 @@ export class InvoiceService {
         if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
             e.preventDefault();
         }
-    }
-    checkInvoice() {
-
     }
 }
 

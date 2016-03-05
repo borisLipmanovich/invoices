@@ -16,7 +16,6 @@ namespace Task.Controllers
 
         // GET: Invoices/Index
         [HttpGet]
-        [AllowCrossSiteJson]
         public JsonResult Index()
         {
             var list = _db.Invoices.AsEnumerable().Select(invoice => new InvoiceViewModel()
@@ -36,7 +35,6 @@ namespace Task.Controllers
 
         // GET: Invoices/Details/5
         [HttpGet]
-        [AllowCrossSiteJson]
         public JsonResult Detail(long? id)
         {
             if (id == null)
@@ -61,7 +59,6 @@ namespace Task.Controllers
 
         // POST: Invoices/Create
         [HttpPost]
-        [AllowCrossSiteJson]
         public JsonResult Create(InvoiceViewModel invoice)
         {
             var addInvoice = new Invoice()
@@ -91,7 +88,6 @@ namespace Task.Controllers
 
         // POST: Invoices/Edit/5
         [HttpPost]
-        [AllowCrossSiteJson]
         public JsonResult Edit(InvoiceViewModel invoice)
         {
             var addInvoice = new Invoice()
@@ -121,7 +117,6 @@ namespace Task.Controllers
 
         // POST: Invoices/Delete/5
         [HttpPost]
-        [AllowCrossSiteJson]
         public JsonResult Delete(long? id)
         {
             if (id == null)

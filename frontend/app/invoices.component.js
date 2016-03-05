@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './invoice-detail.component', './invoice.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './invoice-detail.component', './invoice.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,6 +45,10 @@ System.register(['angular2/core', 'angular2/router', './invoice-detail.component
                     $('.modal').hide();
                 };
                 InvoicesComponent.prototype.add = function () {
+                    var service = this._invoiceService;
+                    $(".invoice").on("keydown", ".numeric", function (e) {
+                        service.onlyNumericFilter(e);
+                    });
                     $('.modal').show();
                 };
                 InvoicesComponent.prototype.addRow = function () {
@@ -58,6 +60,9 @@ System.register(['angular2/core', 'angular2/router', './invoice-detail.component
                 InvoicesComponent.prototype.calculate = function () {
                     this._invoiceService.calculate();
                 };
+                InvoicesComponent.prototype.onlyNumericFilter = function (e) {
+                    this._invoiceService.onlyNumericFilter(e);
+                };
                 InvoicesComponent = __decorate([
                     core_1.Component({
                         selector: 'my-invoices',
@@ -68,7 +73,7 @@ System.register(['angular2/core', 'angular2/router', './invoice-detail.component
                     __metadata('design:paramtypes', [router_1.Router, invoice_service_1.InvoiceService])
                 ], InvoicesComponent);
                 return InvoicesComponent;
-            }());
+            })();
             exports_1("InvoicesComponent", InvoicesComponent);
         }
     }

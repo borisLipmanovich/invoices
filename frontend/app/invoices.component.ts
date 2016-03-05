@@ -37,6 +37,10 @@ export class InvoicesComponent implements OnInit {
     }
 
     add(){
+        var service = this._invoiceService;
+        $(".invoice").on("keydown", ".numeric", function (e) {
+            service.onlyNumericFilter(e);
+        });
         $('.modal').show();
     }
 
@@ -50,6 +54,10 @@ export class InvoicesComponent implements OnInit {
 
     calculate(){
         this._invoiceService.calculate();
+    }
+
+    onlyNumericFilter(e){
+        this._invoiceService.onlyNumericFilter(e);
     }
 }
 

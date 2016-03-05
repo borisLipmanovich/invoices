@@ -20,9 +20,6 @@ namespace Task
         {
             if (Request.Headers.AllKeys.Contains("Origin") && Request.HttpMethod == "OPTIONS")
             {
-                Response.AddHeader("Access-Control-Allow-Origin", "*");
-                Response.AppendHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-                Response.AppendHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
                 Response.Flush();
             }
         }
