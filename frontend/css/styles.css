@@ -188,7 +188,8 @@ input {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    /*width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 860px;
 }
 
 /* The Close Button */
@@ -204,6 +205,9 @@ input {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+.btn-default{
+    margin-left: 6px;
 }
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
