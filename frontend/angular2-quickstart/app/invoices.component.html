@@ -1,0 +1,67 @@
+<h2 align="center">Invoices</h2>
+
+<button class="btn btn-default" id="add-btn" (click)="add()">Add</button>
+
+<ul class="invoices">
+    <li *ngFor="#invoice of invoices"
+        [class.selected]="invoice === selectedInvoice"
+        (click)="gotoDetail(invoice)">
+
+        <span class="badge">{{invoice.Id}}</span> {{invoice.Number}}
+    </li>
+</ul>
+
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="closeForm()">x</span>
+        <form id="invoice-form">
+            <input type="button" id="add_row_btn" value="Add row" (click)="addRow()">
+            <input type="hidden" value="1" name="companyId">
+            <table class="invoice" id="invoice">
+                <tr class="title-column">
+                    <td colspan="5">שם חברה: ישראל ישראלי בע"מ</td>
+                </tr>
+                <tr class="number-date-column">
+                    <td>מספר חשבונית</td>
+                    <td>1001</td>
+                    <td></td>
+                    <td>תאריך</td>
+                    <td><input type="date" name="date" value="01/12/2015"></td>
+                </tr>
+                <tr class="header-colum">
+                    <td>מהות העבודה</td>
+                    <td>שעות</td>
+                    <td>מחיר שעה</td>
+                    <td>הערות</td>
+                    <td>סה"כ</td>
+                </tr>
+                <tr class="total-column">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>סה"כ</td>
+                    <td>
+                        <input type="text" name="totalSum" value="" id="total-sum">
+                    </td>
+                </tr>
+                <tr class="total-tax-column">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>כולל מע"מ(18%)</td>
+                    <td>
+                        <input type="text" name="totalTaxSum" value="" id="total-tax-sum" readonly>
+                    </td>
+                </tr>
+            </table>
+            <input type="button" id="save_btn" value="Save" (click)="saveForm()">
+            <input type="button" id="calculate_btn" value="Calculate" (click)="calculate()">
+        </form>
+    </div>
+</div>
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

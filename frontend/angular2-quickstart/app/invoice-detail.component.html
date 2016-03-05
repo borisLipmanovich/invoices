@@ -1,0 +1,55 @@
+<div *ngIf="invoice">
+    <h2>Invoice {{invoice.Number}}</h2>
+
+    <div id="invoice-form">
+        <table class="invoice" id="invoice">
+            <tr class="title-column">
+                <td colspan="5">{{invoice.CompanyName}}</td>
+            </tr>
+            <tr class="number-date-column">
+                <td>מספר חשבונית</td>
+                <td>{{invoice.Number}}</td>
+                <td></td>
+                <td>תאריך</td>
+                <td>{{invoice.Date}}</td>
+            </tr>
+            <tr class="header-colum">
+                <td>מהות העבודה</td>
+                <td>שעות</td>
+                <td>מחיר שעה</td>
+                <td>הערות</td>
+                <td>סה"כ</td>
+            </tr>
+            <tr class="row" *ngFor="#field of invoice.Fields">
+                <td>{{field.Name}}</td>
+                <td>{{field.Hours}}</td>
+                <td>{{field.Price}}</td>
+                <td>{{field.Comment}}</td>
+                <td>{{field.Total}}</td>
+            </tr>
+            <tr class="total-column">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>סה"כ</td>
+                <td>{{invoice.TotalSum}}</td>
+            </tr>
+            <tr class="total-tax-column">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>כולל מע"מ(18%)</td>
+                <td>{{invoice.TotalTaxSum}}</td>
+            </tr>
+        </table>
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>
+
+
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
